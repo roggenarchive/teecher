@@ -3,10 +3,10 @@
         <h2>Füge eine Schule hinzu:</h2>
         <h2 class = "btn btn-default" ng-click = "showAddSchoolForm()">Los!</h2>
         <div ng-show = "showAddSchoolFormBoo">
-            <input required type="text" class="form-control" placeholder="Region" list="regions" name="regions">
-            <input required class="form-control" maxlength="200" rows="1" placeholder="Name " ng-model="newPost.text"></input>
-            <input required class="form-control" maxlength="200" rows="1" placeholder="Extra "></input>
-            <input class="btn submit-btn pull-right" type="submit" value="Add school!" href = "#/submitSchool" />
+            <input required type="text" class="form-control" placeholder="Region" list="regions" name="regions" ng-model = "school.region">
+            <input required class="form-control" maxlength="200" rows="1" placeholder="Name " ng-model="school.name"></input>
+            <input required class="form-control" maxlength="200" rows="1" placeholder="Extra "ng-model="school.extra"></input>
+            <input class="btn submit-btn pull-right" type="submit" value="Add school!"/>
         </div>
         <div ng-show = "loadingSubmit" >
             School Added

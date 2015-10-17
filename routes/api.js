@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Post = mongoose.model('Post');
+var School = mongoose.model('School');
 
 //Used for routes that must be authenticated.
 function isAuthenticated (req, res, next) {
@@ -24,33 +24,34 @@ function isAuthenticated (req, res, next) {
 //Register the authentication middleware
 router.use('/posts', isAuthenticated);
 
-router.route('/posts')
+router.route('/school')
 	//creates a new post
 	.post(function(req, res){
-
-		var post = new Post();
-		post.text = req.body.text;
-		post.created_by = req.body.created_by;
-		console.log(req.body)
-		post.save(function(err, post) {
+		console.log('Ap schools')
+		var school = new School();
+		console.log(req);
+		school.region = req.body.region;
+		school.name = req.body.name;
+		school.extra = req.body.extra;
+		school.save(function(err, school) {
 			if (err){
 				return res.send(500, err);
 			}
-			return res.json(post);
+			return res.json(school);
 		});
 	})
 	//gets all posts
 	.get(function(req, res){
-		Post.find(function(err, posts){
+		School.find(function(err, schools){
 			if(err){
 				return res.send(500, err);
 			}
-			return res.send(posts);
+			return res.send(schools);
 		});
 	});
 
 //post-specific commands. likely won't be used
-router.route('/posts/:id')
+/*router.route('/posts/:id')
 	//gets specified post
 	.get(function(req, res){
 		Post.findById(req.params.id, function(err, post){

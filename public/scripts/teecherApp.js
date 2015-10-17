@@ -26,24 +26,45 @@ app.config(function($routeProvider){
             controller: 'logoutController'
         })
         .when('/regions', {
-            templateUrl: 'views/regions.html',
+            templateUrl: 'views/regions.html'
+        })
+        .when('/schools', {
+            templateUrl: 'views/schools.html',
+            controller : 'schoolController'
         });
 });
 
-app.factory('postService', function($resource){
+/*app.factory('postService', function($resource){
     return $resource('/api/posts/:id');
-});
+});*/
 
-app.controller('mainController', function(postService, $scope, $rootScope){
-    $scope.posts = postService.query();
-    $scope.newPost = {name: '', region: '', extra: ''};
-    $scope.submitSchool = function() {
-        postService.save($scope.newPost, function(){
-            $scope.posts = postService.query();
-            $scope.newPost = {name: '', region: '', extra: ''};
-        });
-    };
-    $scope.showAddSchoolFormBoo = false;
+app.controller('mainController', [
+
+    "$http", "$scope", "$rootScope",
+
+    function($http, $scope, $rootScope){
+
+        $scope.school = {
+            region : '',
+            name : '',
+            extra : ''
+        };
+
+        $scope.loadingSubmit = false;
+
+
+
+        $scope.submitSchool = function(){
+            console.dir($scope.school);
+            $scope.loadingSubmit = true;
+            $scope.showAddSchoolFormBoo = false;
+            $http.post('api/school', $scope.school)
+                .then(function(a,b){console.log(a, b)}, function(){})
+
+        };
+
+
+        $scope.showAddSchoolFormBoo = false;
     $scope.showAddSchoolForm = function(){
         if($scope.showAddSchoolFormBoo === true){
             $scope.showAddSchoolFormBoo = false;
@@ -52,13 +73,8 @@ app.controller('mainController', function(postService, $scope, $rootScope){
     }
 
 
-    $scope.loadingSubmit = false;
-    $scope.submitSchool = function(){
-        $scope.loadingSubmit = true;
-        $scope.showAddSchoolFormBoo = false;
-}
 
-});
+}]);
 
 app.controller('authController', function($scope, $http, $rootScope, $location){
     $scope.user = {username: '', password: ''};
@@ -96,9 +112,23 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
 
 app.controller('logoutController', function($scope, $rootScope, $location, $http){
     $http.get('auth/signout');
-    console.log('br line')
+    console.log('br line');
     $rootScope.authenticated = false;
     $rootScope.current_user = '';
     $location.path('/')
 });
+
+app.controller('schoolController', function($scope, $rootScope, $http){
+
+    $http.get('api/school')
+
+        .then (function(res){
+            console.log(1)
+            console.dir(res);
+            $scope.schools = res.data;
+
+         })
+
+});
+
 
