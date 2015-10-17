@@ -1,12 +1,7 @@
-var app = angular.module('chirpApp', ['ngRoute', 'ngResource']).run(function($rootScope) {
+var app = angular.module('teecherApp', ['ngRoute', 'ngResource']).run(function($rootScope) {
     $rootScope.authenticated = false;
     $rootScope.current_user = '';
 
-    $rootScope.signout = function(){
-        $http.get('auth/signout');
-        $rootScope.authenticated = false;
-        $rootScope.current_user = '';
-    };
 });
 
 app.config(function($routeProvider){
@@ -25,6 +20,10 @@ app.config(function($routeProvider){
         .when('/register', {
             templateUrl: 'views/register.html',
             controller: 'authController'
+        })
+        .when('/signout', {
+            templateUrl: 'views/logout.html',
+            controller: 'logoutController'
         });
 });
 
@@ -37,15 +36,19 @@ app.controller('mainController', function(postService, $scope, $rootScope){
     $scope.newPost = {created_by: '', text: '', created_at: ''};
     $scope.post = function() {
         $scope.newPost.created_by = $rootScope.current_user;
-        console.log($scope.newPost.created_by)
+        console.log($scope.newPost.created_by);
         $scope.newPost.created_at = Date.now();
-        console.dir(postService)
+        console.dir(postService);
         postService.save($scope.newPost, function(){
             $scope.posts = postService.query();
-            console.log(postService.query())
+            console.log(postService.query());
             $scope.newPost = {created_by: '', text: '', created_at: ''};
         });
     };
+    $scope.showAddSchoolFormBoo = false;
+    $scope.showAddSchoolForm = function(){
+        $scope.showAddSchoolFormBoo = true;
+    }
 });
 
 app.controller('authController', function($scope, $http, $rootScope, $location){
@@ -66,6 +69,7 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
         });
     };
 
+
     $scope.register = function(){
         $http.post('/auth/signup', $scope.user).success(function(data){
             if(data.state == 'success'){
@@ -78,5 +82,14 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
             }
         });
     };
+});
+
+
+app.controller('logoutController', function($scope, $rootScope, $location, $http){
+        $http.get('auth/signout');
+        console.log('br line')
+        $rootScope.authenticated = false;
+        $rootScope.current_user = '';
+        $location.path('/')
 });
 

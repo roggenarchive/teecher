@@ -1,26 +1,24 @@
 <!--index.html-->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Chirp</title>
+    <title>Teecher</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
-    <script src="scripts/chirpApp.js"></script>
+    <script src="scripts/teecherApp.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
-<body ng-app="chirpApp">
+<body ng-app="teecherApp">
 <div id='main' class="container">
     <nav class="navbar-fluid navbar-default navbar-fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#"> App-Name </a>
-<<<<<<< HEAD
-            <p class="navbar-text"> Teecher</p>
-            <p class="navbar-right navbar-text"><a href="#/login">Login</a> or <a href="#/register">Register</a></p>
-=======
-            <p class="navbar-text"> .. ... ... ... ...</p>
-            <p class="navbar-right navbar-text"><span ng-hide = "authenticated"><a href="#/login">Login</a> or <a href="#/register">Register</a></span></a> <a href="#/logout" ng-show = "authenticated">logout</a> </p>
->>>>>>> 5fadd1e46dcea457da20e0607c4688360f960287
+            <a class="navbar-brand" href="#"> Teecher </a>
+            <p class="navbar-text"> Rate your teachers!</p>
+            <p class="navbar-right navbar-text"><span ng-hide = "authenticated"><a href="#/login">Login</a> or <a href="#/register">Register</a></span>
+                </a> <a href="#/signout" ng-show = "authenticated">logout</a> </p>
+
         </div>
     </nav>
     <div class="col-md-offset-2 col-md-8">
