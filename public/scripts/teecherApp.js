@@ -28,7 +28,11 @@ app.config(function($routeProvider){
         .when('/submitSchool', {
             templateUrl: 'views/logout.html',
             controller: 'logoutController'
-        });
+        })
+	    .when('/rating', {
+	        templateUrl: 'views/rating.html'
+	    });
+	
 });
 
 app.factory('postService', function($resource){
