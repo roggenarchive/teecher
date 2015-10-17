@@ -3,7 +3,8 @@
         <h2>Add a school:</h2>
         <h2 class = "btn btn-default" ng-click = "showAddSchoolForm()">Go</h2>
         <div ng-show = "showAddSchoolFormBoo">
-            <textarea required class="form-control" maxlength="200" rows="1" placeholder="Name: " ng-model="newPost.text"></textarea>
+            <input required type="text" class="form-control" placeholder="Region" list="regions" name="regions">
+            <input required class="form-control" maxlength="200" rows="1" placeholder="Name " ng-model="newPost.text"></input>
             <input class="btn submit-btn pull-right" type="submit" value="Add school!" />
         </div>
     </form>
