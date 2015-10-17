@@ -16,8 +16,10 @@
         <div class="container">
             <a class="navbar-brand" href="#"> Teecher </a>
             <p class="navbar-text"> Rate your teachers!</p>
-            <p class="navbar-right navbar-text"><span ng-hide = "authenticated"><a href="#/login">Login</a> or <a href="#/register">Register</a></span>
-                </a> <a href="#/signout" ng-show = "authenticated">logout</a> </p>
+            <p class="navbar-right navbar-text">
+                <span ng-hide = "authenticated"><a class = "btn btn-primary" href="#/login">Login</a> or <a class = "btn btn-primary" href="#/register">Register</a></span>
+                <span class = "navbar-right navbar-text" ng-show = "authenticated">-  Logged in as {{current_user}}</span>
+                 <a class = "btn btn-primary" href="#/signout" ng-show = "authenticated">logout</a> </p>
 
         </div>
     </nav>

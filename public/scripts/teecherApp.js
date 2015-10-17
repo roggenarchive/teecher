@@ -24,6 +24,10 @@ app.config(function($routeProvider){
         .when('/signout', {
             templateUrl: 'views/logout.html',
             controller: 'logoutController'
+        })
+        .when('/submitSchool', {
+            templateUrl: 'views/logout.html',
+            controller: 'logoutController'
         });
 });
 
@@ -47,7 +51,10 @@ app.controller('mainController', function(postService, $scope, $rootScope){
     };
     $scope.showAddSchoolFormBoo = false;
     $scope.showAddSchoolForm = function(){
-        $scope.showAddSchoolFormBoo = true;
+        if($scope.showAddSchoolFormBoo === true){
+            $scope.showAddSchoolFormBoo = false;
+        }
+        else { $scope.showAddSchoolFormBoo = true;}
     }
 });
 
@@ -86,10 +93,16 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
 
 
 app.controller('logoutController', function($scope, $rootScope, $location, $http){
-        $http.get('auth/signout');
-        console.log('br line')
-        $rootScope.authenticated = false;
-        $rootScope.current_user = '';
-        $location.path('/')
+    $http.get('auth/signout');
+    console.log('br line')
+    $rootScope.authenticated = false;
+    $rootScope.current_user = '';
+    $location.path('/')
+});
+
+app.controller('schoolController', function($scope, $rootScope, $location, $http){
+    $scope.submitSchool = function(){
+        console.log('Hello');
+    }
 });
 
