@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry excluding="**/bower_components/*|**/node_modules/*|.metadata/.plugins/org.eclipse.wst.jsdt.core/libraries/|public/scripts/|routes/|**/*.min.js" kind="src" path=""/>
-	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path=".metadata/.plugins/org.eclipse.wst.jsdt.core/libraries"/>
-	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="public/scripts"/>
-	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="routes"/>
-	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path=""/>
-</classpath>
