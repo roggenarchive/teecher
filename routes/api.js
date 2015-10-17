@@ -85,6 +85,6 @@ router.route('/posts/:id')
 				res.send(err);
 			res.json("deleted :(");
 		});
-	});
+	});*/
 
 module.exports = router;

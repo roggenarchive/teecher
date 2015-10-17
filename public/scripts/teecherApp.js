@@ -36,15 +36,11 @@ app.factory('postService', function($resource){
 
 app.controller('mainController', function(postService, $scope, $rootScope){
     $scope.posts = postService.query();
-    $scope.newPost = {created_by: '', text: '', created_at: ''};
-    $scope.post = function() {
-        $scope.newPost.created_by = $rootScope.current_user;
-        console.log($scope.newPost.created_by);
-        $scope.newPost.created_at = Date.now();
-        console.dir(postService);
+    $scope.newPost = {name: '', region: '', extra: ''};
+    $scope.submitSchool = function() {
         postService.save($scope.newPost, function(){
             $scope.posts = postService.query();
-            $scope.newPost = {created_by: '', text: '', created_at: ''};
+            $scope.newPost = {name: '', region: '', extra: ''};
         });
     };
     $scope.showAddSchoolFormBoo = false;
@@ -59,10 +55,8 @@ app.controller('mainController', function(postService, $scope, $rootScope){
     $scope.loadingSubmit = false;
     $scope.submitSchool = function(){
         $scope.loadingSubmit = true;
-        $scope.showAddSchoolFormBoo = false
-        console.log(1)
-      setTimeout(function(){ $scope.loadingSubmit = false; },500);
-    }
+        $scope.showAddSchoolFormBoo = false;
+}
 
 });
 
