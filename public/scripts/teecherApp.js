@@ -34,6 +34,9 @@ app.config(function($routeProvider){
         })
 	    .when('/rating', {
 	        templateUrl: 'views/rating.html'
+	    })
+	    .when('/dummy', {
+	        templateUrl: 'views/dummyrating.html'
 	    });
 
 });
