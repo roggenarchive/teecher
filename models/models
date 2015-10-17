@@ -18,7 +18,24 @@ var schoolSchema = new mongoose.Schema({
  extra : String
  });
 
+/*var teacherSchema = new mongoose.Schema({
+    $scope.teacher = {
+    rating : {
+        coolness : 0,
+        fairness : 0,
+        competence : 0,
+        fun: 0,
+        flexibility : 0
+    },
+    name : 'Manu Masson',
+    school : undefined,
+    age : '23',
+    subject : "Mathe, Sport"
+};
+});*/
+
 //Declare a model called User
 mongoose.model("User", userSchema);
 mongoose.model("School", schoolSchema);
 mongoose.model("Post", postSchema);
+//mongoose.model("Teacher", teacherSchema);

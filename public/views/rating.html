@@ -33,7 +33,7 @@
 			<td class = 'rate'>
 
 				<span ng-click = 'teacher.rating[category] = score'ng-class = "{active : teacher.rating[category] >= score}" class = "rating" ng-repeat = "score in [1,2,3,4,5]" >☆</span>
-				({{teacher.rating[category]}})
+				<span ng-hide ="teacher.rating[category] == 0">({{teacher.rating[category]}})</span>
 			</td>
 			<td>
 				{{categoryNames[category]}}

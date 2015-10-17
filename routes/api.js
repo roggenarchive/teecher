@@ -51,17 +51,17 @@ router.route('/school')
 	});
 
 //post-specific commands. likely won't be used
-/*router.route('/posts/:id')
+router.route('/schools/:id')
 	//gets specified post
 	.get(function(req, res){
-		Post.findById(req.params.id, function(err, post){
+		School.findById(req.params.id, function(err, school){
 			if(err)
 				res.send(err);
-			res.json(post);
+			res.json(school);
 		});
 	})
 	//updates specified post
-	.put(function(req, res){
+	/*.put(function(req, res){
 		Post.findById(req.params.id, function(err, post){
 			if(err)
 				res.send(err);
@@ -76,7 +76,8 @@ router.route('/school')
 				res.json(post);
 			});
 		});
-	})
+	})*/
+	/*
 	//deletes the post
 	.delete(function(req, res) {
 		Post.remove({

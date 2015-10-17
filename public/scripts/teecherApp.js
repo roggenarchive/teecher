@@ -32,6 +32,10 @@ app.config(function($routeProvider){
             templateUrl: 'views/schools.html',
             controller : 'schoolController'
         })
+        .when('/schools/:id', {
+            templateUrl: 'views/certainSchool.html',
+            controller : 'certainSchoolController'
+        })
 	    .when('/rating', {
 	        templateUrl: 'views/rating.html',
             controller : 'ratingController'
@@ -131,8 +135,9 @@ app.controller('schoolController', function($scope, $rootScope, $http){
             console.log(1)
             console.dir(res);
             $scope.schools = res.data;
-
+            $scope.schools.forEach(function(school, index){school.id = res.data[index]._id})
          })
+
 
 });
 
@@ -145,17 +150,15 @@ app.controller('ratingController', function($scope, $rootScope, $http){
        flexibility : 'Flexiblitaet & Eingehen auf die Schueler'
 
    };
-   $scope.getNumOfStars = function(){
-        $scope.something ++;
-   };
+
     $scope.categoryKeys = Object.keys($scope.categoryNames);
     $scope.teacher = {
         rating : {
-            coolness : 3,
-            fairness : 5,
-            competence : 1,
-            fun: 2,
-            flexiblity : 4
+            coolness : 0,
+            fairness : 0,
+            competence : 0,
+            fun: 0,
+            flexibility : 0
         },
         name : 'Manu Masson',
         school : undefined,
@@ -164,16 +167,11 @@ app.controller('ratingController', function($scope, $rootScope, $http){
     };
 
 });
-/*$scope.teacher = {
-    rating : {
-        coolness : 3,
-        fairness : 5,
-        competence : 1,
-        fun: 2,
-        flexiblity : 4
-    },
-    name : '',
-    school : undefined,
-    age : '',
-    subject : undefined
-}*/
+
+app.controller('certainSchoolController',  function($routeParams, $scope, $rootScope, $http){
+    $scope.schoolId = $routeParams.id;
+    $http.get('api/schools/' + $scope.schoolId).then(function(res){
+        $scope.certainSchool = res.data;
+    },function(){})
+});
+
