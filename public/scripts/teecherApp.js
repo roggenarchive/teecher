@@ -36,15 +36,19 @@ app.controller('mainController', function(postService, $scope, $rootScope){
     $scope.newPost = {created_by: '', text: '', created_at: ''};
     $scope.post = function() {
         $scope.newPost.created_by = $rootScope.current_user;
-        console.log($scope.newPost.created_by)
+        console.log($scope.newPost.created_by);
         $scope.newPost.created_at = Date.now();
-        console.dir(postService)
+        console.dir(postService);
         postService.save($scope.newPost, function(){
             $scope.posts = postService.query();
-            console.log(postService.query())
+            console.log(postService.query());
             $scope.newPost = {created_by: '', text: '', created_at: ''};
         });
     };
+    $scope.showAddSchoolFormBoo = false;
+    $scope.showAddSchoolForm = function(){
+        $scope.showAddSchoolFormBoo = true;
+    }
 });
 
 app.controller('authController', function($scope, $http, $rootScope, $location){
