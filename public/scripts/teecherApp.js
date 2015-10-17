@@ -1,4 +1,4 @@
-var app = angular.module('chirpApp', ['ngRoute', 'ngResource']).run(function($rootScope) {
+var app = angular.module('teecherApp', ['ngRoute', 'ngResource']).run(function($rootScope) {
     $rootScope.authenticated = false;
     $rootScope.current_user = '';
 
@@ -88,3 +88,4 @@ app.controller('logoutController', function($scope, $rootScope, $location, $http
         $rootScope.current_user = '';
         $location.path('/')
 });
+
