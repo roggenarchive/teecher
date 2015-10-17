@@ -2,11 +2,6 @@ var app = angular.module('chirpApp', ['ngRoute', 'ngResource']).run(function($ro
     $rootScope.authenticated = false;
     $rootScope.current_user = '';
 
-    $rootScope.signout = function(){
-        $http.get('auth/signout');
-        $rootScope.authenticated = false;
-        $rootScope.current_user = '';
-    };
 });
 
 app.config(function($routeProvider){
@@ -25,6 +20,10 @@ app.config(function($routeProvider){
         .when('/register', {
             templateUrl: 'views/register.html',
             controller: 'authController'
+        })
+        .when('/signout', {
+            templateUrl: 'views/logout.html',
+            controller: 'logoutController'
         });
 });
 
@@ -66,6 +65,7 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
         });
     };
 
+
     $scope.register = function(){
         $http.post('/auth/signup', $scope.user).success(function(data){
             if(data.state == 'success'){
@@ -80,3 +80,11 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
     };
 });
 
+
+app.controller('logoutController', function($scope, $rootScope, $location, $http){
+        $http.get('auth/signout');
+        console.log('br line')
+        $rootScope.authenticated = false;
+        $rootScope.current_user = '';
+        $location.path('/')
+});
