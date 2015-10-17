@@ -33,10 +33,15 @@ app.config(function($routeProvider){
             controller : 'schoolController'
         })
 	    .when('/rating', {
+<<<<<<< HEAD
 	        templateUrl: 'views/rating.html'
 	    })
 	    .when('/dummy', {
 	        templateUrl: 'views/dummyrating.html'
+=======
+	        templateUrl: 'views/rating.html',
+            controller : 'ratingController'
+>>>>>>> origin/master
 	    });
 
 });
@@ -138,4 +143,44 @@ app.controller('schoolController', function($scope, $rootScope, $http){
 
 });
 
+app.controller('ratingController', function($scope, $rootScope, $http){
+   $scope.categoryNames = {
+        coolness : 'Coolness und Humor ',
+       fairness : 'Fairness der Notenverteilung',
+       competence : 'Fachliche Kompetenz',
+       fun : 'Spass im Unterricht',
+       flexibility : 'Flexiblitaet & Eingehen auf die Schueler'
 
+   };
+   $scope.getNumOfStars = function(){
+        $scope.something ++;
+   };
+    $scope.categoryKeys = Object.keys($scope.categoryNames);
+    $scope.teacher = {
+        rating : {
+            coolness : 3,
+            fairness : 5,
+            competence : 1,
+            fun: 2,
+            flexiblity : 4
+        },
+        name : 'Manu Masson',
+        school : undefined,
+        age : '23',
+        subject : "Mathe, Sport"
+    };
+
+});
+/*$scope.teacher = {
+    rating : {
+        coolness : 3,
+        fairness : 5,
+        competence : 1,
+        fun: 2,
+        flexiblity : 4
+    },
+    name : '',
+    school : undefined,
+    age : '',
+    subject : undefined
+}*/

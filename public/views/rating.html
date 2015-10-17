@@ -5,82 +5,44 @@
 
 		.rate {
 		  unicode-bidi: bidi-override;
-		  direction: rtl;
 		  text-align: center;
 		}
 		.rate > span {
 		  display: inline-block;
 		  position: relative;
 		  width: 1.1em;
+			cursor : pointer;
 		}
-		.rate > span:hover,
-		.rate > span:hover ~ span {
-		  color: transparent;
+		.rate > span.active  {
+			color : gold;
 		}
-		.rate > span:hover:before,
-		.rate > span:hover ~ span:before {
-		   content: "\2605";
-		   position: absolute;
-		   left: 0;
-		   color: gold;
+		.rate > span:hover {
+			color : red;
 		}
+
 	</style>
 	<script>
 	
 	</script>
 
+	<div>Teacher: {{teacher.name}} ({{teacher.subject}})</div>
 <table class="lehrer">
-	<tr>
-		<td>
-		</td>
-		<td>
-		</td>
-	</tr>
 
-	<tr>
 
-		<td>
-			<div class="rate">
-			<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-			</div>
-				<hr>
-			<div class="rate">
-			<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-			</div>
-				<hr>
-			<div class="rate">
-			<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-			</div>
-				<hr>
-			<div class="rate">
-			<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-			</div>
-				<hr>
-			<div class="rate">
-			<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-			</div>
-				<hr>
-			<div class="rate">
-			<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-			</div>
-		</td>
-	
-		<td>
-			Coolness und Humor
-			<hr>
-			Fairness der Notenverteilung 
-			<hr>
-			Fachliche Kompetenz
-			<hr>
-			Spa&szlig; im Unterricht
-			<hr>
-			Verst&auml;ndliches Erkl&auml;ren
-			<hr>
-			Flexiblit&auml;t & Eingehen auf die Sch&uuml;er
+		<tr ng-repeat = "category in categoryKeys" class="rate">
+			<td class = 'rate'>
 
-		</td>
+				<span ng-click = 'teacher.rating[category] = score'ng-class = "{active : teacher.rating[category] >= score}" class = "rating" ng-repeat = "score in [1,2,3,4,5]" >☆</span>
+				({{teacher.rating[category]}})
+			</td>
+			<td>
+				{{categoryNames[category]}}
 
-	</tr>
+			</td>
+		</tr>
+
+
+
 </table>
 	
 
