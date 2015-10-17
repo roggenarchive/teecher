@@ -25,9 +25,8 @@ app.config(function($routeProvider){
             templateUrl: 'views/logout.html',
             controller: 'logoutController'
         })
-        .when('/submitSchool', {
-            templateUrl: 'views/logout.html',
-            controller: 'logoutController'
+        .when('/regions', {
+            templateUrl: 'views/regions.html',
         });
 });
 
@@ -45,7 +44,6 @@ app.controller('mainController', function(postService, $scope, $rootScope){
         console.dir(postService);
         postService.save($scope.newPost, function(){
             $scope.posts = postService.query();
-            console.log(postService.query());
             $scope.newPost = {created_by: '', text: '', created_at: ''};
         });
     };
@@ -56,6 +54,16 @@ app.controller('mainController', function(postService, $scope, $rootScope){
         }
         else { $scope.showAddSchoolFormBoo = true;}
     }
+
+
+    $scope.loadingSubmit = false;
+    $scope.submitSchool = function(){
+        $scope.loadingSubmit = true;
+        $scope.showAddSchoolFormBoo = false
+        console.log(1)
+      setTimeout(function(){ $scope.loadingSubmit = false; },500);
+    }
+
 });
 
 app.controller('authController', function($scope, $http, $rootScope, $location){
@@ -98,11 +106,5 @@ app.controller('logoutController', function($scope, $rootScope, $location, $http
     $rootScope.authenticated = false;
     $rootScope.current_user = '';
     $location.path('/')
-});
-
-app.controller('schoolController', function($scope, $rootScope, $location, $http){
-    $scope.submitSchool = function(){
-        console.log('Hello');
-    }
 });
 

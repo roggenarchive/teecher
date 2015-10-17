@@ -1,12 +1,15 @@
 <div class="clearfix">
-    <form ng-Submit="post()" ng-show="authenticated">
+    <form ng-Submit="submitSchool()" ng-show="authenticated">
         <h2>Füge eine Schule hinzu:</h2>
-        <h2 class = "btn btn-default" ng-click = "showAddSchoolForm()">Los!</h2>
+        <h2 ng-hide = "loadingSubmit "class = "btn btn-default" ng-click = "showAddSchoolForm()">Los!</h2>
         <div ng-show = "showAddSchoolFormBoo">
             <input required type="text" class="form-control" placeholder="Region" list="regions" name="regions">
             <input required class="form-control" maxlength="200" rows="1" placeholder="Name " ng-model="newPost.text"></input>
             <input required class="form-control" maxlength="200" rows="1" placeholder="Extra "></input>
             <input class="btn submit-btn pull-right" type="submit" value="Add school!" href = "#/submitSchool" />
+        </div>
+        <div ng-show = "loadingSubmit" >
+            Proccessing your information...
         </div>
     </form>
 </div>
@@ -17,9 +20,9 @@
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search for your region" list="regions" name="regions">
         <datalist id="regions">
+            <option value="Baden-WÃ¼rttemberg">
+            <option value="Bayern">
             <option value="Berlin">
-            <option value="..">
-            <option value="..">
             <option value="..">
             <option value="...">
         </datalist>
