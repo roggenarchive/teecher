@@ -37,8 +37,15 @@ app.config(function($routeProvider){
             controller : 'certainSchoolController'
         })
 	    .when('/rating', {
+<<<<<<< HEAD
+	        templateUrl: 'views/rating.html'
+	    })
+	    .when('/dummy', {
+	        templateUrl: 'views/dummyrating.html'
+=======
 	        templateUrl: 'views/rating.html',
             controller : 'ratingController'
+>>>>>>> origin/master
 	    });
 
 });
@@ -167,6 +174,7 @@ app.controller('ratingController', function($scope, $rootScope, $http){
     };
 
 });
+<<<<<<< HEAD
 
 app.controller('certainSchoolController',  function($routeParams, $scope, $rootScope, $http){
     $scope.schoolId = $routeParams.id;
@@ -175,3 +183,18 @@ app.controller('certainSchoolController',  function($routeParams, $scope, $rootS
     },function(){})
 });
 
+=======
+/*$scope.teacher = {
+    rating : {
+        coolness : 3,
+        fairness : 5,
+        competence : 1,
+        fun: 2,
+        flexiblity : 4
+    },
+    name : '',
+    school : undefined,
+    age : '',
+    subject : undefined
+}*/
+>>>>>>> 21c66724f6f53b75edfcd32ded0269a134ed21cd
