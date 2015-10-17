@@ -54,12 +54,13 @@ router.route('/school')
 router.route('/schools/:id')
 	//gets specified post
 	.get(function(req, res){
+		console.log("d", req.params.id);
 		School.findById(req.params.id, function(err, school){
 			if(err)
 				res.send(err);
 			res.json(school);
 		});
-	})
+	});
 	//updates specified post
 	/*.put(function(req, res){
 		Post.findById(req.params.id, function(err, post){

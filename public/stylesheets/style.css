@@ -33,4 +33,11 @@ a {
 .form-auth {
     max-width: 330px;
     padding: 5px;
-    ma
+}
+
+.btncenter {
+    height : 80%;
+    vertical-align : center;
+    text-align: center;
+    margin-top : 10em;
+}
