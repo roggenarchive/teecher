@@ -31,7 +31,7 @@ app.config(function($routeProvider){
         .when('/schools', {
             templateUrl: 'views/schools.html',
             controller : 'schoolController'
-        });
+        })
 	    .when('/rating', {
 	        templateUrl: 'views/rating.html'
 	    });
