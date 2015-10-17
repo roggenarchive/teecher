@@ -1,6 +1,6 @@
 <div class="clearfix">
     <form ng-Submit="submitSchool()" ng-show="authenticated">
-        <h2>Füge eine Schule hinzu:</h2>
+        <h2>Fuege eine Schule hinzu:</h2>
         <h2 class = "btn btn-default" ng-click = "showAddSchoolForm()">Los!</h2>
         <div ng-show = "showAddSchoolFormBoo">
             <input required type="text" class="form-control" placeholder="Region" list="regions" name="regions" ng-model = "school.region">
@@ -9,7 +9,7 @@
             <input class="btn submit-btn pull-right" type="submit" value="Add school!"/>
         </div>
         <div ng-show = "loadingSubmit" >
-            School Added
+            <span class = "text-success">School Added! - <a href="#/schools">Check it out</a> </span>
     </form>
 </div>
     <h4 ng-show="authenticated">Finde eine Schule:</h4>
