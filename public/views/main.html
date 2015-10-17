@@ -1,19 +1,21 @@
 <div class="clearfix">
     <form ng-Submit="post()" ng-show="authenticated">
-        <h4>Add a school</h4>
-        <textarea required class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="newPost.text"></textarea>
-        <input class="btn submit-btn pull-right" type="submit" value="Post!!" />
+        <h2>Add a school:</h2>
+        <h2 class = "btn btn-default" ng-click = "showAddSchoolForm()">Go</h2>
+        <div ng-show = "showAddSchoolFormBoo">
+            <textarea required class="form-control" maxlength="200" rows="1" placeholder="Name: " ng-model="newPost.text"></textarea>
+            <input class="btn submit-btn pull-right" type="submit" value="Add school!" />
+        </div>
     </form>
 </div>
-<div id="post-stream">
-    <h4 ng-show="authenticated">Feed</h4>
+    <h4 ng-show="authenticated">Find a school:</h4>
     <span ng-hide="authenticated"> <a href = '#/login' class = "btn btn-default">Please Log In</a> or <a href = '#/register' class = "btn btn-default">Register</a></span>
-    <div ng-show = "authenticated" class="post" ng-repeat="post in posts | orderBy:'created_at':true" ng-class-odd="'odd'" ng-class-even="'even'">
-        <p>{{post.text}}</p>
-        <small>Posted by anon</small>
-        <small class="pull-right">{{post.created_at | date:"h:mma 'on' MMM d, y"}}</small>
-    </div>
-</div>
+    <!--  <div id="post-stream">  <div ng-show = "authenticated" class="post" ng-repeat="post in posts | orderBy:'created_at':true" ng-class-odd="'odd'" ng-class-even="'even'">
+            <p>{{post.text}}</p>
+            <small>Posted by anon</small>
+            <small class="pull-right">{{post.created_at | date:"h:mma 'on' MMM d, y"}}</small>
+        </div>
+    </div>-->
 <form ng-show = "authenticated" class="navbar-form navbar-left" role="search" ng-submit = "regionSearch();">
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search for your region" list="regions" name="regions">
