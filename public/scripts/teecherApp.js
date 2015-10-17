@@ -32,6 +32,10 @@ app.config(function($routeProvider){
             templateUrl: 'views/schools.html',
             controller : 'schoolController'
         });
+	    .when('/rating', {
+	        templateUrl: 'views/rating.html'
+	    });
+
 });
 
 /*app.factory('postService', function($resource){
