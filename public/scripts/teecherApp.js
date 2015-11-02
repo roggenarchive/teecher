@@ -1,4 +1,4 @@
-var app = angular.module('teecherApp', ['ngRoute', 'ngResource']).run(function($rootScope) {
+var app = angular.module('teecherApp', ['ngRoute', 'ngResource', 'ui.bootstrap']).run(function($rootScope) {
     $rootScope.authenticated = false;
     $rootScope.current_user = '';
 
