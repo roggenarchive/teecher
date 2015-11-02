@@ -21,4 +21,5 @@ Until we have the website online here's what you can do.
 - Add more stuff to the readme.md including a german intro.
 - Get the website hosted.
 - Complete the *Add teacher* part. 
+- Use UpUp for offline browsing :)
 - Much, Much more.
