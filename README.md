@@ -11,7 +11,7 @@ If you want to see the website, right now thats pretty complicated.
 Until we have the website online here's what you can do.
 
 1. Download nodejs
-2. Download mongodb and run `mongod` in the terminal. You will alsoe need to create `data/db` folder.
+2. Download mongodb and run `mongod` in the terminal. You will also need to create `data/db` folder.
 3. Enter the teecher files and run `npm install` in the terminal
 4. Run `npm start`
 5. Go to port 3000 on your browser http://localhost:3000/#/
