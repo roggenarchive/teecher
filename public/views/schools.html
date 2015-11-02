@@ -1,7 +1,8 @@
-<h2> schulen:</h2>
+<h2> Schulen:</h2>
 
 
 
-<div ng-repeat = "school in schools | orderBy : 'name':true"> Name: {{school.name}} <br>Region: {{school.region}} <br> Extra :{{school.extra}}
-<a href = "api/schools/{{school.id}}">Go to this school's page</a>
+<div ng-repeat = "school in schools | orderBy : 'name':true"> <div class = "name">Name:</div><div class = " centerBig">{{school.name}}</div> <br><br>
+ <a href = "#/schools/{{school.id}}">Gehe zur Schul Seite</a> <br> <br>
 </div>
+

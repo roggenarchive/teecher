@@ -12,12 +12,10 @@
             <span class = "text-success">School Added! - <a href="#/schools">Check it out</a> </span>
     </form>
 </div>
-    <h4 ng-show="authenticated">Finde eine Schule:</h4>
-    <div  class = "btncenter" ng-hide="authenticated"> <a href = '#/login' class = "btn btn-default">Melde dich an</a> or <a href = '#/register' class = "btn btn-default">Register</a></div>
+<br>
+<a href="#/schools" ng-show="authenticated" >Liste von allen schulen</a> </span>
+    <div  class = "btncenter" ng-hide="authenticated"> <a href = '#/login' class = "btn btn-default">Melde dich an</a> oder <a href = '#/register' class = "btn btn-default">Registrieren</a></div>
 
-<form ng-show = "authenticated" class="navbar-form navbar-left" role="search" ng-submit = "regionSearch();">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search for your region" list="regions" name="regions">
         <datalist id="regions">
             <option value ="Baden-Wuerttemberg">Baden-Wuerttemberg </option>
             <option value = "Bayern">Bayern</option>
@@ -38,5 +36,4 @@
         </datalist>
     </div>
 
-    <button type="submit" class="btn btn-default">Best&auml;tigen</button>
 </form>
