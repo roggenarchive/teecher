@@ -1,0 +1,93 @@
+<!--Redirect to hoome page after 2 seconds-->
+<meta http-equiv="refresh" content="2; url=http://localhost:3000/#" />
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" >
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="inner cover">
+                <h1 class="cover-heading">Uh oh</h1>
+                <p class="lead">
+                    <!--icon-->
+                    <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+
+                    <!--Similiar to alt for pictures-->
+                    <span class="sr-only">Error: 404, not found</span>
+
+                    <!--The actual error-->
+                    <span class="text-danger">404: Not Found</span>
+                </p>
+                <p class="lead">
+                    <small>This page will redirect in <span id="countdown">2</span> seconds</small>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+    /*
+ * Globals
+ */
+
+    p:hover #countdown{
+        color: red;
+        content : "1";
+    }
+    html,
+    body {
+        height: 100%;
+        background-color: #333;
+    }
+    body {
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 1px 3px rgba(0,0,0,0);
+    }
+
+    /* Extra markup and styles for table-esque vertical and horizontal centering */
+    .site-wrapper {
+        display: table;
+        width: 100%;
+        height: 100%; /* For at least Firefox */
+        min-height: 100%;
+        -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,0);
+        box-shadow: inset 0 0 100px rgba(0,0,0,0);
+    }
+    .site-wrapper-inner {
+        display: table-cell;
+        vertical-align: top;
+    }
+    .cover-container {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .cover {
+        padding: 0 20px;
+    }
+    .cover .btn-lg {
+        padding: 10px 20px;
+        font-weight: bold;
+    }
+
+
+    /*
+     * Affix and center
+     */
+
+    @media (min-width: 768px) {
+        /* Start the vertical centering */
+        .site-wrapper-inner {
+            vertical-align: middle;
+        }}
+
+</style>

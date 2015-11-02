@@ -180,7 +180,7 @@ app.controller('certainSchoolController',  function($routeParams, $scope, $rootS
     },function(){})
 });
 
-app.controller('errorController',  function($scope){
+app.controller('errorController',  function($scope, $location){
     var nav = document.querySelector("nav")
     console.log(nav);
     nav.style.display = "none"
