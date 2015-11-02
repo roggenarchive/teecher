@@ -42,7 +42,9 @@ app.config(function($routeProvider){
 	    })
 	    .when('/dummy', {
 	        templateUrl: 'views/dummyrating.html'
-	    });
+	    })
+
+    .otherwise({ templateUrl: 'views/error.html', controller: "errorController"});
 
 });
 
@@ -176,4 +178,10 @@ app.controller('certainSchoolController',  function($routeParams, $scope, $rootS
     $http.get('api/schools/' + $scope.schoolId).then(function(res){
         $scope.certainSchool = res.data;
     },function(){})
+});
+
+app.controller('errorController',  function($scope){
+    var nav = document.querySelector("nav")
+    console.log(nav);
+    nav.style.display = "none"
 });
