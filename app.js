@@ -11,7 +11,7 @@ var session = require('express-session');
 var passport = require('passport');
 var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
-var index = require('./routes/index')
+var index = require('./routes/index');
 var app = express();
 
 //mongoose connect

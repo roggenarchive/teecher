@@ -35,11 +35,11 @@
               <h3 class="masthead-brand">Teecher <span class="glyphicon glyphicon-user" aria-hidden="true"></span></h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li ng-class = "{'active' : isActive}"><a href="#">Home</a></li>
-                  <li ng-hide = "authenticated"><a href="#/register">Register</a></li>
-   	          <li ng-hide = "authenticated" ><a href="#/login">Login</a></li>
-                  <li><a href="#/schools">Schools</a></li>
-                  <li ng-show = "authenticated" ><a href="#/signout">Logout</a></li>
+                    <li ng-class = "{'active' : isActive}"><a href="#">Home</a></li>
+                    <li ng-hide = "authenticated"><a href="#/register">Register</a></li>
+                    <li ng-hide = "authenticated" ><a href="#/login">Login</a></li>
+                    <li><a href="#/schools">Schools</a></li>
+                    <li ng-show = "authenticated" ><a href="#/signout">Logout</a></li>
           <li ng-show = "authenticated" >Logged in as <strong>{{current_user}}</strong></li>               
                 </ul>
               </nav>
@@ -47,6 +47,13 @@
           </div>
           <div ng-view >
         </div>
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Project <a href="http://github.com/jugendhackt/teecher">Teecher</a>
+                <!--, by <a href="https://github.com/manu354">@manu354</a>.-->
+              </p>
+            </div>
+          </div>
 
         </div>
 
@@ -62,5 +69,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
     <script src="scripts/teecherApp.js"></script>
+    <script src="scripts/directives/stars.js"></script>
   </body>
 </html>

@@ -1,16 +1,16 @@
 	<style>
 		.lehrer td {
-		  padding: 0 5px;
+			padding: 0 5px;
 		}
 
 		.rate {
-		  unicode-bidi: bidi-override;
+			unicode-bidi: bidi-override;
 			width: 15em;
 		}
 		.rate > span {
-		  display: inline-block;
-		  position: relative;
-		  width: 1.1em;
+			display: inline-block;
+			position: relative;
+			width: 1.1em;
 			font-size : 2em;
 			cursor : pointer;
 		}
@@ -31,29 +31,8 @@
 
 	</script>
 
-	<div>Teacher: {{teacher.name}} ({{teacher.subject}})</div>
-
-
-
 	<table width="100%" height="100%">
 		<tr>
-			<td width= "50%" class="tabelle-oben">
-				<img width="40%" src="../images/NoPerson.png" alt="Kein Bild vorhanden"border="5%">  <br><br>
-
-				Name: <br>
-
-				Alter: $alter<br>
-
-				Schule: $schule <br>
-
-				F&auml;cher: $f&auml;cher <br>
-
-				Durchschnittswert: $durchschnittswert <br>
-
-				<p> Kommentare: </p>
-
-
-			</td>
 			<td id="rechts" class="tabelle-oben">
 				<table class="lehrer">
 
@@ -73,7 +52,9 @@
 
 
 				</table>
+
+
+
 			</td>
 		</tr>
-		</table>
-		<textarea class = "form-control" placeholder = "Kommentar"> </textarea>
+	</table>
