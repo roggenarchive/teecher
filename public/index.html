@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="stylesheets/cover.css" rel="stylesheet">
 
   </head>
 
@@ -35,12 +35,12 @@
               <h3 class="masthead-brand">Teecher <span class="glyphicon glyphicon-user" aria-hidden="true"></span></h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
+                  <li ng-class = "{'active' : isActive}"><a href="#">Home</a></li>
                   <li ng-hide = "authenticated"><a href="#/register">Register</a></li>
    	          <li ng-hide = "authenticated" ><a href="#/login">Login</a></li>
                   <li><a href="#/schools">Schools</a></li>
                   <li ng-show = "authenticated" ><a href="#/signout">Logout</a></li>
-          <li ng-show = "authenticated" >Logged in as {{current_user}}</li>               
+          <li ng-show = "authenticated" >Logged in as <strong>{{current_user}}</strong></li>               
                 </ul>
               </nav>
             </div>
