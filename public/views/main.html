@@ -10,11 +10,13 @@
         </div>
         <div ng-show = "loadingSubmit" >
             <span class = "text-success">School Added! - <a href="#/schools">Check it out</a> </span>
+        </div>
     </form>
 </div>
 <br>
 <a href="#/schools" ng-show="authenticated" >Liste von allen schulen</a> </span>
-              <div ng-hide = "authenticated" class="inner cover">
+
+<div ng-hide = "authenticated" class="inner cover">
         <h1 class="cover-heading">Teecher</h1>
         <p class="lead">Rate and give feedback to your teachers anonymously</p>
             <p class="lead">
@@ -24,28 +26,29 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p>Project <a href="http://github.com/cherob/teecher">Teecher</a>, by <a href="https://github.com/manu354">@manu354</a>.</p>
+              <p>Project <a href="http://github.com/cherob/teecher">Teecher</a>
+                  <!--, by <a href="https://github.com/manu354">@manu354</a>.-->
+              </p>
             </div>
           </div>
-
-        <datalist id="regions">
-            <option value ="Baden-Wuerttemberg">Baden-Wuerttemberg </option>
-            <option value = "Bayern">Bayern</option>
-            <option value = "Berlin">Berlin </option>
-            <option value = "Brandenburg">Brandenburg</option>
-            <option value = "Bremen">Bremen </option>
-            <option value = "Hamburg">Hamburg </option>
-            <option value = "Hessen">Hessen</option>
-            <option value = "Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
-            <option value = "Niedersachsen ">Niedersachsen</option>
-            <option value = "Nordrhein-Westfalen">Nordrhein-Westfalen</option>
-            <option value = "Rheinland-Pfalz ">Rheinland-Pfalz</option>
-            <option value = "Saarland">Saarland</option>
-            <option value = "Sachsen">Sachsen</option>
-            <option value = "Sachsen-Anhalt">Sachsen-Anhalt</option>
-            <option value = "Schleswig-Holstein">Schleswig-Holstein</option>
-            <option value = "Thueringen">Thueringen</option>
-        </datalist>
     </div>
 
 </form>
+<datalist id="regions">
+    <option value ="Baden-Wuerttemberg">Baden-Wuerttemberg </option>
+    <option value = "Bayern">Bayern</option>
+    <option value = "Berlin">Berlin </option>
+    <option value = "Brandenburg">Brandenburg</option>
+    <option value = "Bremen">Bremen </option>
+    <option value = "Hamburg">Hamburg </option>
+    <option value = "Hessen">Hessen</option>
+    <option value = "Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+    <option value = "Niedersachsen ">Niedersachsen</option>
+    <option value = "Nordrhein-Westfalen">Nordrhein-Westfalen</option>
+    <option value = "Rheinland-Pfalz ">Rheinland-Pfalz</option>
+    <option value = "Saarland">Saarland</option>
+    <option value = "Sachsen">Sachsen</option>
+    <option value = "Sachsen-Anhalt">Sachsen-Anhalt</option>
+    <option value = "Schleswig-Holstein">Schleswig-Holstein</option>
+    <option value = "Thueringen">Thueringen</option>
+</datalist>
