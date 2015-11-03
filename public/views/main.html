@@ -14,7 +14,19 @@
 </div>
 <br>
 <a href="#/schools" ng-show="authenticated" >Liste von allen schulen</a> </span>
-    <div  class = "btncenter" ng-hide="authenticated"> <a href = '#/login' class = "btn btn-default">Melde dich an</a> oder <a href = '#/register' class = "btn btn-default">Registrieren</a></div>
+              <div ng-hide = "authenticated" class="inner cover">
+        <h1 class="cover-heading">Teecher</h1>
+        <p class="lead">Rate and give feedback to your teachers anonymously</p>
+            <p class="lead">
+              <a href="#" class="btn btn-lg btn-default">Create an account</a>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Project <a href="http://github.com/cherob/teecher">Teecher</a>, by <a href="https://github.com/manu354">@manu354</a>.</p>
+            </div>
+          </div>
 
         <datalist id="regions">
             <option value ="Baden-Wuerttemberg">Baden-Wuerttemberg </option>

@@ -1,38 +1,66 @@
-<!--index.html-->
 <!DOCTYPE html>
-<html lang="de">
-<head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <meta charset="utf-8">
-    <title>Teecher</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" >
+
+    <title>teecher</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
-</head>
-<body ng-app="teecherApp">
-<div id='main' class="container">
-    <nav ng-hide = "hideNav" class="navbar-fluid navbar-default navbar-fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#"> Teecher </a>
-            <p class="navbar-text"> Bewerte deine Lehrer!</p>
-            <p class="navbar-right navbar-text">
-                <span ng-hide = "authenticated"><a class = "btn btn-primary" href="#/login">Anmelden</a> oder <a class = "btn btn-primary" href="#/register">Registrieren</a></span>
-                <span class = "navbar-right navbar-text" ng-show = "authenticated">-  Logged in as {{current_user}}</span>
-                 <a class = "btn btn-primary" href="#/signout" ng-show = "authenticated">Abmelden</a> </p>
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+
+  </head>
+
+  <body ng-app="teecherApp">
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix" ng-hide = "hideNav">
+            <div class="inner">
+              <h3 class="masthead-brand">Teecher <span class="glyphicon glyphicon-user" aria-hidden="true"></span></h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li ng-hide = "authenticated"><a href="#/register">Register</a></li>
+   	          <li ng-hide = "authenticated" ><a href="#/login">Login</a></li>
+                  <li><a href="#/schools">Schools</a></li>
+                  <li ng-show = "authenticated" ><a href="#/signout">Logout</a></li>
+          <li ng-show = "authenticated" >Logged in as {{current_user}}</li>               
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div ng-view >
+        </div>
 
         </div>
-    </nav>
-    <div class="col-md-offset-2 col-md-8">
-        <div ng-view>
-        </div>
+
+      </div>
+
     </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
-<script src="scripts/teecherApp.js"></script>
 
-</body>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+    <script src="scripts/teecherApp.js"></script>
+  </body>
 </html>
