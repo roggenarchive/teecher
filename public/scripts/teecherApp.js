@@ -1,10 +1,10 @@
-var app = angular.module('teecherApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'starsDirective']).run(function($rootScope) {
+var app = angular.module('teecherApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'starsDirective']).run(function ($rootScope) {
     $rootScope.authenticated = false;
     $rootScope.current_user = '';
 
 });
 
-app.config(function($routeProvider){
+app.config(function ($routeProvider) {
     $routeProvider
         //the timeline display
         .when('/', {
@@ -30,53 +30,52 @@ app.config(function($routeProvider){
         })
         .when('/schools', {
             templateUrl: 'views/schools.html',
-            controller : 'schoolController'
+            controller: 'schoolController'
         })
         .when('/schools/:id', {
             templateUrl: 'views/certainSchool.html',
-            controller : 'certainSchoolController'
+            controller: 'certainSchoolController'
         })
-	    .when('/rating', {
+        .when('/rating', {
             templateUrl: 'views/rating.html',
-            controller : 'ratingController'
-	    })
-	    .when('/dummy', {
-	        templateUrl: 'views/dummyrating.html'
-	    })
+            controller: 'ratingController'
+        })
+        .when('/dummy', {
+            templateUrl: 'views/dummyrating.html'
+        })
 
-    .otherwise({ templateUrl: 'views/error.html', controller: "errorController"});
+        .otherwise({templateUrl: 'views/error.html', controller: "errorController"});
 
 });
 
 /*app.factory('postService', function($resource){
-    return $resource('/api/posts/:id');
-});*/
+ return $resource('/api/posts/:id');
+ });*/
 
 app.controller('mainController', [
 
     "$http", "$scope", "$rootScope",
 
-    function($http, $scope, $rootScope){
-	
-	$rootScope.hideNav = false;
+    function ($http, $scope, $rootScope) {
+
+        $rootScope.hideNav = false;
 
         $scope.school = {
-            region : '',
-            name : '',
-            extra : ''
+            region: '',
+            name: '',
+            extra: ''
         };
-	
-	
+
+
         $scope.loadingSubmit = false;
 
 
-
-        $scope.submitSchool = function(){
+        $scope.submitSchool = function () {
             $scope.loadingSubmit = true;
             $scope.showAddSchoolFormBoo = false;
             $http.post('api/school', $scope.school)
 
-                .then(function(school){
+                .then(function (school) {
 
                     console.log(school)
 
@@ -86,45 +85,46 @@ app.controller('mainController', [
 
 
         $scope.showAddSchoolFormBoo = false;
-        $scope.showAddSchoolForm = function(){
+        $scope.showAddSchoolForm = function () {
 
-            if($scope.showAddSchoolFormBoo === true){
+            if ($scope.showAddSchoolFormBoo === true) {
                 $scope.showAddSchoolFormBoo = false;
             }
-            else { $scope.showAddSchoolFormBoo = true;}
+            else {
+                $scope.showAddSchoolFormBoo = true;
+            }
         }
 
 
+    }]);
 
-}]);
-
-app.controller('authController', function($scope, $http, $rootScope, $location){
+app.controller('authController', function ($scope, $http, $rootScope, $location) {
     $scope.user = {username: '', password: ''};
     $scope.error_message = '';
 
-    $scope.login = function(){
-        $http.post('/auth/login', $scope.user).success(function(data){
-            if(data.state == 'success'){
+    $scope.login = function () {
+        $http.post('/auth/login', $scope.user).success(function (data) {
+            if (data.state == 'success') {
                 $rootScope.authenticated = true;
                 $rootScope.current_user = data.user.username;
                 console.log($rootScope.current_user);
                 $location.path('/');
             }
-            else{
+            else {
                 $scope.error_message = data.message;
             }
         });
     };
 
 
-    $scope.register = function(){
-        $http.post('/auth/signup', $scope.user).success(function(data){
-            if(data.state == 'success'){
+    $scope.register = function () {
+        $http.post('/auth/signup', $scope.user).success(function (data) {
+            if (data.state == 'success') {
                 $rootScope.authenticated = true;
                 $rootScope.current_user = data.user.username;
                 $location.path('/');
             }
-            else{
+            else {
                 $scope.error_message = data.message;
             }
         });
@@ -132,7 +132,7 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
 });
 
 
-app.controller('logoutController', function($scope, $rootScope, $location, $http){
+app.controller('logoutController', function ($scope, $rootScope, $location, $http) {
     $http.get('auth/signout');
     console.log('br line');
     $rootScope.authenticated = false;
@@ -140,67 +140,70 @@ app.controller('logoutController', function($scope, $rootScope, $location, $http
     $location.path('/')
 });
 
-app.controller('schoolController', function($scope, $rootScope, $http){
+app.controller('schoolController', function ($scope, $rootScope, $http) {
 
     $http.get('api/school')
 
-        .then (function(res){
-            console.log(1)
-            console.dir(res);
-            $scope.schools = res.data;
-            $scope.schools.forEach(function(school, index){school.id = res.data[index]._id})
-         })
+        .then(function (res) {
+        console.log(1)
+        console.dir(res);
+        $scope.schools = res.data;
+        $scope.schools.forEach(function (school, index) {
+            school.id = res.data[index]._id
+        })
+    })
 
 
 });
 
-app.controller('ratingController', function($scope, $rootScope, $http){
-   $scope.categoryNames = {
-        coolness : 'Coolness und Humor ',
-       fairness : 'Fairness der Notenverteilung',
-       competence : 'Fachliche Kompetenz',
-       fun : 'Spass im Unterricht',
-       flexibility : 'Flexiblitaet & Eingehen auf die Schueler'
+app.controller('ratingController', function ($scope, $rootScope, $http) {
+    $scope.categoryNames = {
+        coolness: 'Coolness und Humor ',
+        fairness: 'Fairness der Notenverteilung',
+        competence: 'Fachliche Kompetenz',
+        fun: 'Spass im Unterricht',
+        flexibility: 'Flexiblitaet & Eingehen auf die Schueler'
 
-   };
+    };
 
     $scope.categoryKeys = Object.keys($scope.categoryNames);
     $scope.teacher = {
-        rating : {
-            coolness : 0,
-            fairness : 0,
-            competence : 0,
+        rating: {
+            coolness: 0,
+            fairness: 0,
+            competence: 0,
             fun: 0,
-            flexibility : 0
+            flexibility: 0
         },
-        name : 'Manu Masson',
-        school : undefined,
-        age : '23',
-        subject : "Mathe, Sport"
+        name: 'Manu Masson',
+        school: undefined,
+        age: '23',
+        subject: "Mathe, Sport"
     };
 
 });
 
-app.controller('certainSchoolController',  function($routeParams, $scope, $rootScope, $http){
+app.controller('certainSchoolController', function ($routeParams, $scope, $rootScope, $http) {
     $scope.schoolId = $routeParams.id;
-    $http.get('api/schools/' + $scope.schoolId).then(function(res){
+    $http.get('api/schools/' + $scope.schoolId).then(function (res) {
         $scope.certainSchool = res.data;
-    },function(){})
+    }, function () {
+    })
 });
 
-app.controller('errorController',  function($rootScope, $location, $window){
+app.controller('errorController', function ($rootScope, $location, $window) {
     $rootScope.hideNav = true;
-	//Makes hideNav false on other pages
-	setTimeout(
-		function(){
-		$rootScope.hideNav = false;
-		},
-	1)
-	//redirects to home page
+    //Makes hideNav false on other pages
+    setTimeout(
+        function () {
+            $rootScope.hideNav = false;
+        },
+        1)
+    //redirects to home page
 
-	setTimeout(
-		function(){
-		$window.location.href = "/"
-		},
-	1999)
+    setTimeout(
+        function () {
+            $window.location.href = "/"
+        },
+        1999)
 });

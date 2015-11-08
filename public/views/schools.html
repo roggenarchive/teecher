@@ -1,8 +1,9 @@
-<h2> Schulen:</h2>
+<div ng-repeat="school in schools | orderBy : 'name':true">
+    <ul>
+        <li>
+            <a href="#/schools/{{school.id}}"><strong><h1>{{school.name}} - {{schoogitl.region}}</h1></strong></a>
+        </li>
 
-
-
-<div ng-repeat = "school in schools | orderBy : 'name':true"> <div class = "name">Name:</div><div class = " centerBig">{{school.name}}</div> <br><br>
- <a href = "#/schools/{{school.id}}">Gehe zur Schul Seite</a> <br> <br>
+    </ul>
 </div>
 

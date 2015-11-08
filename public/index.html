@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
@@ -20,55 +20,56 @@
     <!-- Custom styles for this template -->
     <link href="stylesheets/cover.css" rel="stylesheet">
 
-  </head>
+</head>
 
-  <body ng-app="teecherApp">
+<body ng-app="teecherApp">
 
-    <div class="site-wrapper">
+<div class="site-wrapper">
 
-      <div class="site-wrapper-inner">
+    <div class="site-wrapper-inner">
 
         <div class="cover-container">
 
-          <div class="masthead clearfix" ng-hide = "hideNav">
-            <div class="inner">
-              <h3 class="masthead-brand">Teecher <span class="glyphicon glyphicon-user" aria-hidden="true"></span></h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                    <li ng-class = "{'active' : isActive}"><a href="#">Home</a></li>
-                    <li ng-hide = "authenticated"><a href="#/register">Register</a></li>
-                    <li ng-hide = "authenticated" ><a href="#/login">Login</a></li>
-                    <li><a href="#/schools">Schools</a></li>
-                    <li ng-show = "authenticated" ><a href="#/signout">Logout</a></li>
-          <li ng-show = "authenticated" >Logged in as <strong>{{current_user}}</strong></li>               
-                </ul>
-              </nav>
+            <div class="masthead clearfix" ng-hide="hideNav">
+                <div class="inner">
+                    <h3 class="masthead-brand">Teecher <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </h3>
+                    <nav>
+                        <ul class="nav masthead-nav">
+                            <li ng-class="{'active' : isActive}"><a href="#">Home</a></li>
+                            <li ng-hide="authenticated"><a href="#/register">Register</a></li>
+                            <li ng-hide="authenticated"><a href="#/login">Login</a></li>
+                            <li><a href="#/schools">Schools</a></li>
+                            <li ng-show="authenticated"><a href="#/signout">Logout</a></li>
+                            <li ng-show="authenticated">Logged in as <strong>{{current_user}}</strong></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-          </div>
-          <div ng-view >
-        </div>
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Project <a href="http://github.com/jugendhackt/teecher">Teecher</a>
-                <!--, by <a href="https://github.com/manu354">@manu354</a>.-->
-              </p>
+            <div ng-view>
             </div>
-          </div>
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>Project <a href="http://github.com/jugendhackt/teecher">Teecher</a>
+                        <!--, by <a href="https://github.com/manu354">@manu354</a>.-->
+                    </p>
+                </div>
+            </div>
 
         </div>
-
-      </div>
 
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
-    <script src="scripts/teecherApp.js"></script>
-    <script src="scripts/directives/stars.js"></script>
-  </body>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+<script src="scripts/teecherApp.js"></script>
+<script src="scripts/directives/stars.js"></script>
+</body>
 </html>
