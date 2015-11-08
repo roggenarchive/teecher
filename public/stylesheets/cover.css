@@ -166,3 +166,7 @@ body {
         width: 700px;
     }
 }
+ul
+{
+    list-style-type: none;
+}

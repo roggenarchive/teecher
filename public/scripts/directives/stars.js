@@ -28,11 +28,7 @@ angular.module('starsDirective', [])
                 competence : 0,
                 fun: 0,
                 flexibility : 0
-            },
-            name : 'Manu Masson',
-            school : undefined,
-            age : '23',
-            subject : "Mathe, Sport"
+            }
         };
 
     });
