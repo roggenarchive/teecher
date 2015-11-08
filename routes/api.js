@@ -27,7 +27,6 @@ router.use('/posts', isAuthenticated);
 router.route('/school')
 	//creates a new post
 	.post(function(req, res){
-		console.log('Ap schools')
 		var school = new School();
 		console.log(req);
 		school.region = req.body.region;

@@ -72,22 +72,27 @@ app.controller('mainController', [
 
 
         $scope.submitSchool = function(){
-            console.dir($scope.school);
             $scope.loadingSubmit = true;
             $scope.showAddSchoolFormBoo = false;
             $http.post('api/school', $scope.school)
-                .then(function(a,b){console.log(a, b)}, function(){})
+
+                .then(function(school){
+
+                    console.log(school)
+
+                })
 
         };
 
 
         $scope.showAddSchoolFormBoo = false;
-    $scope.showAddSchoolForm = function(){
-        if($scope.showAddSchoolFormBoo === true){
-            $scope.showAddSchoolFormBoo = false;
+        $scope.showAddSchoolForm = function(){
+
+            if($scope.showAddSchoolFormBoo === true){
+                $scope.showAddSchoolFormBoo = false;
+            }
+            else { $scope.showAddSchoolFormBoo = true;}
         }
-        else { $scope.showAddSchoolFormBoo = true;}
-    }
 
 
 

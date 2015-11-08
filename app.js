@@ -15,7 +15,7 @@ var index = require('./routes/index');
 var app = express();
 
 //mongoose connect
-mongoose.connect("mongodb://localhost:27017/chirp-test");
+mongoose.connect("mongodb://localhost:27017/teechermongo");
 
 //mongoose require
 
