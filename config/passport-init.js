@@ -1,44 +1,40 @@
 var mongoose = require('mongoose');
-var LocalStrategy   = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 var bCrypt = require('bcrypt-nodejs');
 //temporary data store
 var User = mongoose.model('User');
 var Post = mongoose.model('Post');
-module.exports = function(passport){
+module.exports = function (passport) {
 
-    // Passport needs to be able to serialize and deserialize users to support persistent login sessions
-    // Passport needs to be able to serialize and deserialize users to support persistent login sessions
+    // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
-        console.log('serializing user:',User._id);
-        //return the unique id for the user
-       return done(null, user._id);
+        done(null, user.id);
     });
 
-    //Desieralize user will call with the unique id provided by serializeuser
+    // used to deserialize the user
     passport.deserializeUser(function(id, done) {
         User.findById(id, function(err, user) {
-            console.log('deserializing user:',user.username);
             done(err, user);
         });
     });
 
     passport.use('login', new LocalStrategy({
-            passReqToCallback : true
+            passReqToCallback: true
         },
-        function(req, username, password, done) {
+        function (req, username, password, done) {
 
-            User.findOne({ 'username' :  username },
-                function(err, user) {
+            User.findOne({'username': username},
+                function (err, user) {
                     // In case of any error, return using the done method
                     if (err)
                         return done(err);
                     // Username does not exist, log the error and redirect back
-                    if (!user){
-                        console.log('User Not Found with username '+username);
+                    if (!user) {
+                        console.log('User Not Found with username ' + username);
                         return done(null, false);
                     }
                     // User exists but wrong password, log the error
-                    if (!isValidPassword(user, password)){
+                    if (!isValidPassword(user, password)) {
                         console.log('Invalid Password');
                         return done(null, false); // redirect back to login page
                     }
@@ -51,20 +47,20 @@ module.exports = function(passport){
     ));
 
     passport.use('signup', new LocalStrategy({
-                passReqToCallback : true // allows us to pass back the entire request to the callback
+                passReqToCallback: true // allows us to pass back the entire request to the callback
             },
-            function(req, username, password, done) {
+            function (req, username, password, done) {
 
 // find a user in mongo with provided username
-                User.findOne({ 'username' :  username }, function(err, user) {
+                User.findOne({'username': username}, function (err, user) {
                     // In case of any error, return using the done method
-                    if (err){
-                        console.log('Error in SignUp: '+err);
+                    if (err) {
+                        console.log('Error in SignUp: ' + err);
                         return done(err);
                     }
                     // already exists
                     if (user) {
-                        console.log('User already exists with username: '+username);
+                        console.log('User already exists with username: ' + username);
                         return done(null, false);
                     } else {
                         // if there is no user, create the user
@@ -75,9 +71,9 @@ module.exports = function(passport){
                         newUser.password = createHash(password);
 
                         // save the user
-                        newUser.save(function(err) {
-                            if (err){
-                                console.log('Error in Saving user: '+err);
+                        newUser.save(function (err) {
+                            if (err) {
+                                console.log('Error in Saving user: ' + err);
                                 throw err;
                             }
                             console.log(newUser.username + ' Registration successful');
@@ -88,11 +84,11 @@ module.exports = function(passport){
             })
     );
 
-    var isValidPassword = function(user, password){
+    var isValidPassword = function (user, password) {
         return bCrypt.compareSync(password, user.password);
     };
     // Generates hash using bCrypt
-    var createHash = function(password){
+    var createHash = function (password) {
         return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
     };
 
