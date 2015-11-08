@@ -42,37 +42,17 @@
 
 				Name: <br>
 
-				Alter: $alter<br>
+				Alter: <br>
 
-				Schule: $schule <br>
+				Schule: <br>
 
-				F&auml;cher: $f&auml;cher <br>
+				F&auml;cher: <br>
 
-				Durchschnittswert: $durchschnittswert <br>
+				Durchschnittswert: <br>
 
 				<p> Kommentare: </p>
 
-
-			</td>
-			<td id="rechts" class="tabelle-oben">
-				<table class="lehrer">
-
-
-					<tr ng-repeat = "category in categoryKeys" class="rate">
-						<td class = 'rate'>
-
-							<span ng-click = 'teacher.rating[category] = score'ng-class = "{active : teacher.rating[category] >= score}" class = "rating" ng-repeat = "score in [1,2,3,4,5]" >☆</span>
-							<span ng-hide ="teacher.rating[category] == 0">({{teacher.rating[category]}})</span>
-						</td>
-						<td>
-							{{categoryNames[category]}}
-
-						</td>
-					</tr>
-
-
-
-				</table>
+				<stars></stars>
 			</td>
 		</tr>
 		</table>
