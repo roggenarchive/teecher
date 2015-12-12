@@ -1,3 +1,3 @@
-app.factory('teacherDataService', function($resource){
+app.factory('teacherDataService', function ($resource) {
     return $resource('/api/posts/:id');
 });

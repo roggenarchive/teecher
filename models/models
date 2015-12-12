@@ -2,37 +2,37 @@ var mongoose = require('mongoose');
 
 
 var userSchema = new mongoose.Schema({
-    username : String,
-    password : String, //Hash
-    created_at : {type: Date, default : Date.now}
+    username: String,
+    password: String, //Hash
+    created_at: {type: Date, default: Date.now}
 });
 var postSchema = new mongoose.Schema({
-    text : String,
-    username : String,
-    created_at : {type: Date, default : Date.now}
+    text: String,
+    username: String,
+    created_at: {type: Date, default: Date.now}
 });
 
 var schoolSchema = new mongoose.Schema({
- name : String,
- region : String,
- extra : String
- });
+    name: String,
+    region: String,
+    extra: String
+});
 
 /*var teacherSchema = new mongoose.Schema({
-    $scope.teacher = {
-    rating : {
-        coolness : 0,
-        fairness : 0,
-        competence : 0,
-        fun: 0,
-        flexibility : 0
-    },
-    name : 'Manu Masson',
-    school : undefined,
-    age : '23',
-    subject : "Mathe, Sport"
-};
-});*/
+ $scope.teacher = {
+ rating : {
+ coolness : 0,
+ fairness : 0,
+ competence : 0,
+ fun: 0,
+ flexibility : 0
+ },
+ name : 'Manu Masson',
+ school : undefined,
+ age : '23',
+ subject : "Mathe, Sport"
+ };
+ });*/
 
 //Declare a model called User
 mongoose.model("User", userSchema);

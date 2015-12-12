@@ -1,59 +1,65 @@
-	<style>
-		.lehrer td {
-		  padding: 0 5px;
-		}
+<style>
+    .lehrer td {
+        padding: 0 5px;
+    }
 
-		.rate {
-		  unicode-bidi: bidi-override;
-			width: 15em;
-		}
-		.rate > span {
-		  display: inline-block;
-		  position: relative;
-		  width: 1.1em;
-			font-size : 2em;
-			cursor : pointer;
-		}
-		.rate > span.active  {
-			color : gold;
-		}
-		.rate > span:hover {
-			color : red;
-		}
+    .rate {
+        unicode-bidi: bidi-override;
+        width: 15em;
+    }
 
-		#rechts {border-left:1px solid black; }
+    .rate > span {
+        display: inline-block;
+        position: relative;
+        width: 1.1em;
+        font-size: 2em;
+        cursor: pointer;
+    }
 
-		.tabelle-oben  {vertical-align:top; }
+    .rate > span.active {
+        color: gold;
+    }
 
+    .rate > span:hover {
+        color: red;
+    }
 
-	</style>
-	<script>
+    #rechts {
+        border-left: 1px solid black;
+    }
 
-	</script>
-
-	<!--<div>Teacher: {{teacher.name}} ({{teacher.subject}})</div>-->
-
+    .tabelle-oben {
+        vertical-align: top;
+    }
 
 
-	<table width="100%" height="100%">
-		<tr>
-			<td width= "50%" class="tabelle-oben">
-				<img width="40%" src="../images/NoPerson.png" alt="Kein Bild vorhanden"border="5%">  <br><br>
+</style>
+<script>
 
-				Name: <br>
+</script>
 
-				Alter: <br>
+<!--<div>Teacher: {{teacher.name}} ({{teacher.subject}})</div>-->
 
-				Schule: <br>
 
-				F&auml;cher: <br>
+<table width="100%" height="100%">
+    <tr>
+        <td width="50%" class="tabelle-oben">
+            <img width="40%" src="../images/NoPerson.png" alt="Kein Bild vorhanden" border="5%"> <br><br>
 
-				Durchschnittswert: <br>
+            Name: <br>
 
-				<p> Kommentare: </p>
+            Alter: <br>
 
-				<stars></stars>
-			</td>
-		</tr>
-		</table>
-		<textarea class = "form-control" placeholder = "Kommentar"> </textarea>
+            Schule: <br>
+
+            F&auml;cher: <br>
+
+            Durchschnittswert: <br>
+
+            <p> Kommentare: </p>
+
+            <stars></stars>
+        </td>
+    </tr>
+</table>
+<textarea class="form-control" placeholder="Kommentar"> </textarea>

@@ -1,38 +1,43 @@
-	<style>
+<style>
 
-		.rate {
-			unicode-bidi: bidi-override;
-			width: 15em;
-		}
-		.rate > span {
-			display: inline-block;
-			position: relative;
-			width: 1.1em;
-			font-size : 2em;
-			cursor : pointer;
-		}
-		.rate > span.active  {
-			color : gold;
-		}
-		.rate > span:hover {
-			color : red;
-		}
+    .rate {
+        unicode-bidi: bidi-override;
+        width: 15em;
+    }
+
+    .rate > span {
+        display: inline-block;
+        position: relative;
+        width: 1.1em;
+        font-size: 2em;
+        cursor: pointer;
+    }
+
+    .rate > span.active {
+        color: gold;
+    }
+
+    .rate > span:hover {
+        color: red;
+    }
 
 
-	</style>
+</style>
 
-	<td>
-		<table>
-			<tr ng-repeat = "category in categoryKeys" class="rate">
-				<td class = 'rate'>
+<td>
+    <table>
+        <tr ng-repeat="category in categoryKeys" class="rate">
+            <td class='rate'>
 
-					<span ng-click = 'teacher.rating[category] = score'ng-class = "{active : teacher.rating[category] >= score}" class = "rating" ng-repeat = "score in [1,2,3,4,5]" >☆</span>
-					<span ng-hide ="teacher.rating[category] == 0">({{teacher.rating[category]}})</span>
-				</td>
-				<td>
-					{{categoryNames[category]}}
+                <span ng-click='teacher.rating[category] = score'
+                      ng-class="{active : teacher.rating[category] >= score}" class="rating"
+                      ng-repeat="score in [1,2,3,4,5]">☆</span>
+                <span ng-hide="teacher.rating[category] == 0">({{teacher.rating[category]}})</span>
+            </td>
+            <td>
+                {{categoryNames[category]}}
 
-				</td>
-			</tr>
-		</table>
-	</td>
+            </td>
+        </tr>
+    </table>
+</td>

@@ -1,4 +1,3 @@
-
 app.controller('authController', function ($scope, $http, $rootScope, $location) {
     $scope.user = {username: '', password: ''};
     $scope.error_message = '';

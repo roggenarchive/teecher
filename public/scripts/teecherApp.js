@@ -1,13 +1,13 @@
 var app = angular.module('teecherApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'starsDirective']).run(function ($rootScope, $http) {
     $rootScope.authenticated = false;
     $rootScope.current_user = '';
-    $rootScope.userInfo = function(){
+    $rootScope.userInfo = function () {
         console.log("working...");
         //TODO Somethings wrong with this:
         $http.get('api/userinfo')
             .then(function (data) {
-                if(data.data)
-                $rootScope.authenticated = true;
+                if (data.data)
+                    $rootScope.authenticated = true;
                 $rootScope.current_user = data.data.username;
             });
     };

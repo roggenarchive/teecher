@@ -1,46 +1,53 @@
 <div class="clearfix">
     <form ng-Submit="submitSchool()" ng-show="authenticated">
         <h2>Fuege eine Schule hinzu:</h2>
-        <h2 class = "btn btn-default" ng-click = "showAddSchoolForm()">Los!</h2>
-        <div ng-show = "showAddSchoolFormBoo">
-            <input required type="text" class="form-control" placeholder="Region" list="regions" name="regions" ng-model = "school.region">
-            <input required class="form-control" maxlength="200" rows="1" placeholder="Name " ng-model="school.name"></input>
-            <input required class="form-control" maxlength="200" rows="1" placeholder="Extra "ng-model="school.extra"></input>
+
+        <h2 class="btn btn-default" ng-click="showAddSchoolForm()">Los!</h2>
+
+        <div ng-show="showAddSchoolFormBoo">
+            <input required type="text" class="form-control" placeholder="Region" list="regions" name="regions"
+                   ng-model="school.region">
+            <input required class="form-control" maxlength="200" rows="1" placeholder="Name "
+                   ng-model="school.name"></input>
+            <input required class="form-control" maxlength="200" rows="1" placeholder="Extra "
+                   ng-model="school.extra"></input>
             <input class="btn submit-btn pull-right" type="submit" value="Add school!"/>
         </div>
-        <div ng-show = "loadingSubmit" >
-            <span class = "text-success">School Added! - <a href="#/schools">Check it out</a> </span>
+        <div ng-show="loadingSubmit">
+            <span class="text-success">School Added! - <a href="#/schools">Check it out</a> </span>
         </div>
     </form>
 </div>
 <br>
-<a href="#/schools" ng-show="authenticated" >Liste von allen schulen</a> </span>
+<a href="#/schools" ng-show="authenticated">Liste von allen schulen</a> </span>
 
-<div ng-hide = "authenticated" class="inner cover">
-        <h1 class="cover-heading">Teecher</h1>
-        <p class="lead">Rate and give feedback to your teachers anonymously</p>
-            <p class="lead">
-              <a href="#/register" class="btn btn-lg btn-default">Create an account</a>
-            </p>
-          </div>
-    </div>
+<div ng-hide="authenticated" class="inner cover">
+    <h1 class="cover-heading">Teecher</h1>
+
+    <p class="lead">Rate and give feedback to your teachers anonymously</p>
+
+    <p class="lead">
+        <a href="#/register" class="btn btn-lg btn-default">Create an account</a>
+    </p>
+</div>
+</div>
 
 </form>
 <datalist id="regions">
-    <option value ="Baden-Wuerttemberg">Baden-Wuerttemberg </option>
-    <option value = "Bayern">Bayern</option>
-    <option value = "Berlin">Berlin </option>
-    <option value = "Brandenburg">Brandenburg</option>
-    <option value = "Bremen">Bremen </option>
-    <option value = "Hamburg">Hamburg </option>
-    <option value = "Hessen">Hessen</option>
-    <option value = "Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
-    <option value = "Niedersachsen ">Niedersachsen</option>
-    <option value = "Nordrhein-Westfalen">Nordrhein-Westfalen</option>
-    <option value = "Rheinland-Pfalz ">Rheinland-Pfalz</option>
-    <option value = "Saarland">Saarland</option>
-    <option value = "Sachsen">Sachsen</option>
-    <option value = "Sachsen-Anhalt">Sachsen-Anhalt</option>
-    <option value = "Schleswig-Holstein">Schleswig-Holstein</option>
-    <option value = "Thueringen">Thueringen</option>
+    <option value="Baden-Wuerttemberg">Baden-Wuerttemberg</option>
+    <option value="Bayern">Bayern</option>
+    <option value="Berlin">Berlin</option>
+    <option value="Brandenburg">Brandenburg</option>
+    <option value="Bremen">Bremen</option>
+    <option value="Hamburg">Hamburg</option>
+    <option value="Hessen">Hessen</option>
+    <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+    <option value="Niedersachsen ">Niedersachsen</option>
+    <option value="Nordrhein-Westfalen">Nordrhein-Westfalen</option>
+    <option value="Rheinland-Pfalz ">Rheinland-Pfalz</option>
+    <option value="Saarland">Saarland</option>
+    <option value="Sachsen">Sachsen</option>
+    <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+    <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+    <option value="Thueringen">Thueringen</option>
 </datalist>
