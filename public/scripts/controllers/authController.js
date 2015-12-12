@@ -1,6 +1,9 @@
+
 app.controller('authController', function ($scope, $http, $rootScope, $location) {
     $scope.user = {username: '', password: ''};
     $scope.error_message = '';
+
+    $rootScope.userInfo();
 
     $scope.login = function () {
         $http.post('/auth/login', $scope.user).success(function (data) {

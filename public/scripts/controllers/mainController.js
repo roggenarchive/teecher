@@ -4,6 +4,7 @@ app.controller('mainController', [
 
     function ($http, $scope, $rootScope) {
 
+        //$rootScope.authenticated = true;
         $rootScope.hideNav = false;
 
         $scope.school = {

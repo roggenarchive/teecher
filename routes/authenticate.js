@@ -7,6 +7,8 @@ module.exports = function(passport){
     //sends successful login state back to angular
     router.get('/success', function(req, res){
         res.send({state: 'success', user: req.user ? req.user : null});
+        req.session.user = req.user;
+        console.log("/successs", req.session);
     });
 
     //sends failure login state back to angular
@@ -18,7 +20,8 @@ module.exports = function(passport){
     router.post('/login', passport.authenticate('login', {
         successRedirect: '/auth/success',
         failureRedirect: '/auth/failure'
-    }));
+    }))
+    ;
 
     //sign up
     router.post('/signup', passport.authenticate('signup', {
@@ -35,3 +38,5 @@ module.exports = function(passport){
     return router;
 
 };
+
+//TODO session-id stays the same. Angular doesnt get account info.f

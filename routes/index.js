@@ -6,6 +6,8 @@ var router = express.Router();
 router.get('/', function(req, res, next){
 
     res.render('views/index', {title : "f"})
+    console.log(req.isAuthenticated);
+    console.log(req.session);
 });
 
 module.exports = router;

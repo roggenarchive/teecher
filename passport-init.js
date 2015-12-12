@@ -3,6 +3,7 @@ var LocalStrategy   = require('passport-local').Strategy;
 var bCrypt = require('bcrypt-nodejs');
 //temporary data store
 var User = mongoose.model('User');
+var Post = mongoose.model('Post');
 module.exports = function(passport){
 
     // Passport needs to be able to serialize and deserialize users to support persistent login sessions
@@ -10,7 +11,7 @@ module.exports = function(passport){
     passport.serializeUser(function(user, done) {
         console.log('serializing user:',User._id);
         //return the unique id for the user
-        return done(null, user._id);
+       return done(null, user._id);
     });
 
     //Desieralize user will call with the unique id provided by serializeuser
@@ -46,7 +47,6 @@ module.exports = function(passport){
                     return done(null, user);
                 }
             );
-
         }
     ));
 
